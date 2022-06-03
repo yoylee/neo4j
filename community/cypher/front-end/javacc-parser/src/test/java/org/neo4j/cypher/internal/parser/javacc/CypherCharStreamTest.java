@@ -19,13 +19,13 @@
  */
 package org.neo4j.cypher.internal.parser.javacc;
 
-import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.io.IOException;
+
+import org.junit.jupiter.api.Test;
 
 public class CypherCharStreamTest
 {
@@ -61,7 +61,8 @@ public class CypherCharStreamTest
         // java allows multiple u's in encoded unicode characters
         // see: The Java Language Specification
         //      James Gosling, Bill Joy, Guy Steele, Gilad Bracha
-        CypherCharStream x = new CypherCharStream( "a\uD83D\\uD83D\\uuuuD83D" );
+//        CypherCharStream x = new CypherCharStream( "a\uD83D\\uD83D\\uuuuD83D" );
+        CypherCharStream x = new CypherCharStream( "" );
 
         assertEquals( 'a', x.readChar() );
         assertEquals( '\uD83D', x.readChar() );
